@@ -14,9 +14,9 @@ struct Element {
 template <typename T>
 class BaseStack {
  public:
-  BaseStack()= default;;
+  BaseStack() = default;
   BaseStack(BaseStack &&st) noexcept = default;
-  auto operator=(BaseStack &&st)  noexcept -> BaseStack & = default;
+  auto operator=(BaseStack &&st) noexcept -> BaseStack & = default;
   BaseStack(const BaseStack &st) = delete;
   auto operator=(const BaseStack &st) -> BaseStack & = delete;
   void push(T &&value);
@@ -50,4 +50,4 @@ BaseStack<T>::~BaseStack() {
   }
 }
 
-#endif // INCLUDE_HEADER_HPP_
+#endif  // INCLUDE_HEADER_HPP_
