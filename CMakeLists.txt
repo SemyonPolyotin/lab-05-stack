@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 option(BUILD_TESTS "Build tests" ON)
 option(BUILD_DOCS "Build documentation" OFF)
-option(BUILD_COVERAGE "Build code coverage" OFF)
+#option(BUILD_COVERAGE "Build code coverage" OFF)
 
 set(
   HUNTER_CACHE_SERVERS
@@ -55,14 +55,14 @@ if(BUILD_TESTS)
   add_test(NAME unit_tests COMMAND tests)
 endif()
 
-if(BUILD_COVERAGE)
+#[[if(BUILD_COVERAGE)
   set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)
   list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/tools/coverage/cmake")
   find_package(codecov)
   add_coverage(${PROJECT_NAME})
   add_coverage(tests)
   coverage_evaluate()
-endif()
+endif()]]
 
 if(BUILD_DOCS)
   set(DOXYGEN_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/_docs)
